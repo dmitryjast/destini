@@ -11,9 +11,19 @@ import Foundation
 struct StoryBrain {
     
     let storiesArray = [
-        Story(q: "You see a fork in the road", a1: "Take a left.", a2: "Take a right."),
-        Story(q: "You see a tiger", a1: "Shout for help.", a2: "Play dead."),
-        Story(q: "You find a treasure chest", a1: "Open it.", a2: "Check for traps.")
+        
+        //0
+        Story(q: "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide-brimmed hat and soulless eyes opens the passenger door for you and says: Need a ride, boy?", a1: "I'll hop in. Thanks for the help!", a2: "Well, I don't have many options. Better ask him if he's a murderer."),
+        //1
+        Story(q: "He nods slowly, unphased by the question.", a1: "At least he's honest. I'll climb in.", a2: "Wait, I know how to change a tire."),
+        //2
+        Story(q: "As you begin to drive, the stranger starts talking about his relationship with his mother. He gets angrier and  angrier by the minute. He asks you to open the glove box. Inside you find a bloody knife, two severed fingers, and a cassette tape of Elton John. He reaches for the glove box.", a1: "I love Elton John! Hand him the cassette tape.", a2: "It’s him or me. Take the knife and stab him."),
+        //3
+        Story(q: "What? Such a cop-out! Did you know accidental traffic accidents are the second leading cause of accidental death for most adult age groups?", a1: "Yes", a2: "No"),
+        //4
+        Story(q: "As you smash through the guardrail and careen towards the jagged rocks below you reflect on the dubious wisdom of stabbing someone while they are driving a car you are in.", a1: "Yes", a2: "No"),
+        //5
+        Story(q: "You bond with the murderer while crooning verses of - Can you feel the love tonight. He drops you off at the next town. Before you go he asks you if you know any good places to dump bodies. You reply: Try the pier.", a1: "Yes", a2: "No")
     ]
     
     var storyNumber = 0
@@ -31,12 +41,18 @@ struct StoryBrain {
     }
     
     mutating func nextQuestion(_ userAnswer: String) {
-            if userAnswer == "Take a left." {
-                storyNumber = 1
-            } else if userAnswer == "Take a right." {
+            if userAnswer == storiesArray[storyNumber].answerFirst && storyNumber == 0 {
                 storyNumber = 2
-            } else {
-                
+            } else if userAnswer == storiesArray[storyNumber].answerSecond && storyNumber == 0 {
+                storyNumber = 1
+            } else if userAnswer == storiesArray[storyNumber].answerFirst && storyNumber == 2 {
+                storyNumber = 5
+            } else if userAnswer == storiesArray[storyNumber].answerSecond && storyNumber == 2 {
+                storyNumber = 4
+            } else if userAnswer == storiesArray[storyNumber].answerFirst && storyNumber == 1 {
+                storyNumber = 2
+            } else if userAnswer == storiesArray[storyNumber].answerSecond && storyNumber == 1 {
+                storyNumber = 3
             }
         }
     
