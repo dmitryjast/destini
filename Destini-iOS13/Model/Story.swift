@@ -13,7 +13,7 @@ struct Story {
     let answerFirst: String
     let answerSecond: String
     
-    init(title: String, choice1: String, choice2: String) {
+    init(title: String, choice1: String, choice1Destination: Int, choice2: String, choice2Destination: Int) {
         text = title
         answerFirst = choice1
         answerSecond = choice2
