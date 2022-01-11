@@ -13,10 +13,12 @@ struct Story {
     let answerFirst: String
     let answerSecond: String
     
-    init(q: String, a1: String, a2: String) {
-        text = q
-        answerFirst = a1
-        answerSecond = a2
+    init(title: String, choice1: String, choice2: String) {
+        text = title
+        answerFirst = choice1
+        answerSecond = choice2
+        
+  
     }
 }
 
