@@ -80,19 +80,13 @@ struct StoryBrain {
     }
     
     mutating func nextQuestion(_ userAnswer: String) {
-            if userAnswer == storiesArray[storyNumber].answerFirst && storyNumber == 0 {
-                storyNumber = 2
-            } else if userAnswer == storiesArray[storyNumber].answerSecond && storyNumber == 0 {
-                storyNumber = 1
-            } else if userAnswer == storiesArray[storyNumber].answerFirst && storyNumber == 2 {
-                storyNumber = 5
-            } else if userAnswer == storiesArray[storyNumber].answerSecond && storyNumber == 2 {
-                storyNumber = 4
-            } else if userAnswer == storiesArray[storyNumber].answerFirst && storyNumber == 1 {
-                storyNumber = 2
-            } else if userAnswer == storiesArray[storyNumber].answerSecond && storyNumber == 1 {
-                storyNumber = 3
+        
+            if userAnswer == storiesArray[storyNumber].answerFirst {
+                storyNumber = storiesArray[storyNumber].choise1Dest
+            } else {
+                storyNumber = storiesArray[storyNumber].choise2Dest
             }
+        
         }
     
     
