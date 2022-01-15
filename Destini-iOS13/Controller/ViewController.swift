@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var choice1Button: UIButton!
     @IBOutlet weak var choice2Button: UIButton!
     
     var storyBrain = StoryBrain()
+    
+    var testtt = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +33,17 @@ class ViewController: UIViewController {
         
         storyBrain.nextQuestion(userAnswer)
         updateUI()
-        
-        
-        print(userAnswer)
-        
-
     }
     
     func updateUI() {
         
+        print("background\(storyBrain.storyNumber)")
+        backgroundImage.image = UIImage(named: "background\(storyBrain.storyNumber)")
         storyLabel.text = storyBrain.getQuestionText()
         choice1Button.setTitle(storyBrain.getAnswer1(), for: .normal)
         choice2Button.setTitle(storyBrain.getAnswer2(), for: .normal)
         
-    
+
     }
 
 }

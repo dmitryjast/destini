@@ -20,7 +20,7 @@ struct Story {
         answerFirst = choice1
         answerSecond = choice2
         choise1Dest = choice1Destination
-        choise2Dest = choice1Destination
+        choise2Dest = choice2Destination
     }
 }
 
